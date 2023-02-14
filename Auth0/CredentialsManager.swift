@@ -21,8 +21,8 @@ import Combine
 /// - ``CredentialsManagerError``
 public struct CredentialsManager {
 
-    private let storage: CredentialsStorage
-    private let storeKey: String
+    public let storage: CredentialsStorage
+    public let storeKey: String
     private let authentication: Authentication
     private let dispatchQueue = DispatchQueue(label: "com.auth0.credentialsmanager.serial")
     private let dispatchGroup = DispatchGroup()
@@ -365,7 +365,7 @@ public struct CredentialsManager {
         return credentials.expiresIn < Date(timeIntervalSinceNow: TimeInterval(ttl))
     }
 
-    func hasExpired(_ credentials: Credentials) -> Bool {
+    public func hasExpired(_ credentials: Credentials) -> Bool {
         return credentials.expiresIn < Date()
     }
 
